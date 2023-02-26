@@ -1,7 +1,8 @@
 import './App.css';
 import IdCard from './components/IdCard.jsx';
 import Greetings from './components/Greetings';
-import {usersArray as users} from './data/users'
+import Random from './components/Random';
+import {usersArray as users} from './data/users';
 
 
 function App() {
@@ -14,6 +15,9 @@ function App() {
     <h1>Greetings</h1>  
     <Greetings lang="de">Ludwig</Greetings>
     <Greetings lang="fr">François</Greetings>
+    <h1>Random</h1>     
+    <Random min={1} max={6}/>
+    <Random min={1} max={100}/>
     </div>
   );
 }
