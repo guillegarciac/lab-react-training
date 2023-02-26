@@ -1,25 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
+import IdCard from './components/IdCard.jsx';
+import {usersArray as users} from './data/users'
+
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {users.map(elem => {
+        return <IdCard key={elem._id} user={elem} />
+      })}
     </div>
   );
 }
 
 export default App;
+
