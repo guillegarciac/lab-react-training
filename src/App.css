@@ -82,3 +82,36 @@
   padding: 20px;
   text-align: center;
 }
+
+/* CCs */
+
+.credit-card {
+  margin: 10px;
+  border-radius: 10px;
+  height: 190px;
+  width: 350px;
+}
+
+.credit-card > h2 {
+  text-align: center;
+  letter-spacing: 3px;
+  font-size: 1.8em;
+  font-weight: 400;
+  margin: 18px;
+}
+
+.credit-card > img {
+  margin-left: auto;
+  display: block;
+  padding: 10px 10px 0px 0px;
+}
+
+.card-data {
+  margin: 0px 0px 0px 15px;
+  text-align: left;
+}
+
+.cc-owner {
+  margin: 0px 0px 0px 15px;
+  text-align: left;
+}
