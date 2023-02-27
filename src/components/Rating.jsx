@@ -7,9 +7,10 @@ const Rating = (props) => {
   const rating = [];
   const roundedRating = Math.round(children);
   const style = {
-    width: '15px',
-    height: '15px'
+    width: '30px',
+    height: '30px'
   };
+  
   for (let i = 0; i<=4; i++) {
     /* loops out of 4 to print 5 stars */
     rating.push(
@@ -18,8 +19,9 @@ const Rating = (props) => {
       <img style={style} key={i} src={emptyStar} alt='empty' />
     )
   }
+  
   return (
-    <div>{rating}</div>
+    <div className="rating">{rating}</div>
   )
 }
 export default Rating;

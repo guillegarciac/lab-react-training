@@ -4,9 +4,9 @@ import Rating from "./Rating";
 const DriverCard = (props) => {
   const {driver: {name, rating, img, car}} = props;
   return (
-    <div>
+    <div className="driverCard">
       <img src={img} alt="driverImage" />
-      <div>
+      <div className="driverDetails">
         <h2>{name}</h2>
         <Rating>{rating}</Rating>
         <p>{car.model} - {car.licensePlate}</p>
