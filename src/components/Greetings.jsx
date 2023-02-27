@@ -18,7 +18,11 @@ const Greetings = (props) => {
 		}
 	}
 
-	return (<p>{greet(lang)} {children}</p>)
+	return (
+    <p className="greeting">
+      {greet(lang)} {children}
+    </p>
+  )
 }
 
 export default Greetings;
