@@ -2,7 +2,6 @@ import React from 'react'
 
 const IdCard = (props) => {
   const {user: {lastName, firstName, gender, height, birth, picture}} = props;
-  console.log(props)
   return (
     <div className="IdCard">
       <img src={picture} alt="userPicture" />
