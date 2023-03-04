@@ -8,6 +8,7 @@ import Rating from './components/Rating';
 import DriverCard from './components/DriverCard';
 import LikeButton from './components/LikeButton';
 import ClickablePicture from './components/ClickablePicture';
+import Dice from './components/Dice';
 import {usersArray as users} from './data/users';
 import {cardsArray as cards} from './data/cards'
 import {driversArray as drivers} from './data/drivers'
@@ -50,7 +51,9 @@ function App() {
       <LikeButton/> 
       </div>
       <h1>Clickable Picture</h1>
-      <ClickablePicture img='maxence.png' imgClicked='maxence-glasses.png' />       
+      <ClickablePicture img='maxence.png' imgClicked='maxence-glasses.png' />   
+      <h1>Dice</h1>
+      <Dice />     
     </div>
   );
 }
