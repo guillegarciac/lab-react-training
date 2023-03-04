@@ -6,6 +6,7 @@ import BoxColor from './components/BoxColor';
 import CreditCard from './components/CreditCard';
 import Rating from './components/Rating';
 import DriverCard from './components/DriverCard';
+import LikeButton from './components/LikeButton';
 import {usersArray as users} from './data/users';
 import {cardsArray as cards} from './data/cards'
 import {driversArray as drivers} from './data/drivers'
@@ -42,6 +43,12 @@ function App() {
         {drivers.map(elem => {
           return <DriverCard key={elem._id} driver={elem} />
         })}  
+      <h1>Like Buttons</h1>
+      <div className="btn-container">
+      <LikeButton />  
+      <LikeButton/> 
+      </div>
+       
     </div>
   );
 }
