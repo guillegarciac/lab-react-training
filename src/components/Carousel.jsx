@@ -12,6 +12,7 @@ export default function Carosuel({images}) {
   //useEffect runs whenever imageIndex or images change and updates the image state variable to the URL corresponding to the current imageIndex.
   useEffect(() => {
     setImage(images[imageIndex])
+    //to update the image state variable whenever the imageIndex or images array changes.
   }, [imageIndex, images]);
   
   //sets imageIndex to 0 (to start the carousel from the beginning). Otherwise, it increments imageIndex by 1 to display the next image in the array.

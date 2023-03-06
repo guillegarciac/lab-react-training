@@ -10,6 +10,7 @@ import LikeButton from './components/LikeButton';
 import ClickablePicture from './components/ClickablePicture';
 import Carosuel from './components/Carousel';
 import Dice from './components/Dice';
+import NumbersTable from './components/NumbersTable';
 import {usersArray as users} from './data/users';
 import {cardsArray as cards} from './data/cards'
 import {driversArray as drivers} from './data/drivers'
@@ -63,7 +64,9 @@ function App() {
           'https://randomuser.me/api/portraits/women/2.jpg',
           'https://randomuser.me/api/portraits/men/2.jpg'
         ]}
-      />     
+      />
+      <h1>List & Keys</h1>
+      <NumbersTable limit={12} />
     </div>
   );
 }
