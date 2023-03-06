@@ -6,9 +6,11 @@ const SignupPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [nationality, setNationality] = useState("");
+  const [showGreeting, setShowGreeting] = useState(false);
 
   const handleEmailChange = (event) => {
     setEmail(event.target.value);
+    setShowGreeting(true);
   };
 
   const handlePasswordChange = (event) => {
@@ -96,11 +98,13 @@ const SignupPage = () => {
               </Form.Control>
             </Form.Group>
 
-            <p id="greeting">
-              {greeting} Your email is {email}
-            </p>
+            {showGreeting && (
+              <p id="greeting">
+                {greeting} Your email is {email}
+              </p>
+            )}
 
-            <Button variant="primary" type="submit">
+            <Button variant="primary" type="submit" disabled={!email.includes("@") || password.length < 8}>
               Signup
             </Button>
           </Form>
