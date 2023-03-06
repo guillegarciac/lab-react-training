@@ -8,6 +8,7 @@ import Rating from './components/Rating';
 import DriverCard from './components/DriverCard';
 import LikeButton from './components/LikeButton';
 import ClickablePicture from './components/ClickablePicture';
+import Carosuel from './components/Carousel';
 import Dice from './components/Dice';
 import {usersArray as users} from './data/users';
 import {cardsArray as cards} from './data/cards'
@@ -53,7 +54,16 @@ function App() {
       <h1>Clickable Picture</h1>
       <ClickablePicture img='maxence.png' imgClicked='maxence-glasses.png' />   
       <h1>Dice</h1>
-      <Dice />     
+      <Dice />   
+      <h1>Image Carousel</h1>
+      <Carosuel
+        images={[
+          'https://randomuser.me/api/portraits/women/1.jpg',
+          'https://randomuser.me/api/portraits/men/1.jpg',
+          'https://randomuser.me/api/portraits/women/2.jpg',
+          'https://randomuser.me/api/portraits/men/2.jpg'
+        ]}
+      />     
     </div>
   );
 }
