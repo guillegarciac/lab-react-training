@@ -33,10 +33,12 @@ export default function Facebook() {
   //Handles button click to select All countries => selectedCountry = null
   const handleAllCountriesClick = () => {
     setSelectedCountry(null)
+    setShowMoreCountries(false);
   }
 
   //Handles the Toggle for dropdown more countries visibility
   const handleMoreCountriesClick = () => {
+    setSelectedCountry(null);
     setShowMoreCountries(!showMoreCountries); 
   };
 
