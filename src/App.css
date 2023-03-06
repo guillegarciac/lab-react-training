@@ -255,3 +255,8 @@ button.selected {
 .color-box > input {
   width: 75px;
 }
+
+.App > h1 {
+  margin-top: 20px;
+  font-size: 70px;
+}

@@ -56,6 +56,8 @@ function App() {
  
   return (
     <div className="App">
+    <h1>Lab React Training</h1>
+    <h2>Select a Component</h2>
       <div className="buttons-container">
         <button onClick={() => handleButtonClick("IdCard")}>IdCard</button>
         <button onClick={() => handleButtonClick("Greetings")}>Greetings</button>
