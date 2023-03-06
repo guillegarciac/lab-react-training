@@ -181,5 +181,20 @@
   background-color: white;
 }
 
+button {
+  font-family: 'Helvetica Neue', sans-serif;
+  font-size: 14px;
+  padding: 8px 12px;
+  margin: 4px;
+  border: 1px solid black;
+  border-radius: 4px;
+  color: #FFF;
+  background-color: #43A5BE;
+  cursor: pointer;
+}
 
+button.selected {
+  background-color: #FFF;
+  color: #43A5BE;
+}
 
