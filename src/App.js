@@ -34,119 +34,160 @@ function App() {
   const [showFacebook, setShowFacebook] = useState(false);
   const [showSignupPage, setShowSignupPage] = useState(false);
 
-/* TODO: refactor to hide component onClick
-  const [activeComponent, setActiveComponent] = useState(null);
-
-  const showComponent = (componentName) => {
-    setActiveComponent(componentName);
-  }
-  
-  const hideComponent = () => {
-  setActiveComponent(null);
-  }
-*/
+  const handleButtonClick = (buttonName) => {
+    setShowIdCard(buttonName === "IdCard");
+    setShowGreetings(buttonName === "Greetings");
+    setShowRandom(buttonName === "Random");
+    setShowBoxColor(buttonName === "BoxColor");
+    setShowCreditCard(buttonName === "CreditCard");
+    setShowRating(buttonName === "Rating");
+    setShowDriverCard(buttonName === "Drivers");
+    setShowLikeButton(buttonName === "Like Buttons");
+    setShowClickablePicture(buttonName === "Clickable Picture");
+    setShowCarousel(buttonName === "Image Carousel");
+    setShowDice(buttonName === "Dice");
+    setShowNumbersTable(buttonName === "List & Keys");
+    setShowFacebook(buttonName === "Facebook Profiles");
+    setShowSignupPage(buttonName === "SignUp");
+  };
  
-
-
-  
   return (
     <div className="App">
+      <div className="buttons-container">
+        <button onClick={() => handleButtonClick("IdCard")}>IdCard</button>
+        <button onClick={() => handleButtonClick("Greetings")}>Greetings</button>
+        <button onClick={() => handleButtonClick("Random")}>Random</button>
+        <button onClick={() => handleButtonClick("BoxColor")}>BoxColor</button>
+        <button onClick={() => handleButtonClick("CreditCard")}>CreditCard</button>
+        <button onClick={() => handleButtonClick("Rating")}>Rating</button>
+        <button onClick={() => handleButtonClick("Drivers")}>Drivers</button>
+        <button onClick={() => handleButtonClick("Like Buttons")}>Like Buttons</button>
+        <button onClick={() => handleButtonClick("Clickable Picture")}>Clickable Picture</button>
+        <button onClick={() => handleButtonClick("Dice")}>Dice</button>
+        <button onClick={() => handleButtonClick("Image Carousel")}>Image Carousel</button>
+        <button onClick={() => handleButtonClick("List & Keys")}>List & Keys</button>
+        <button onClick={() => handleButtonClick("Facebook Profiles")}>Facebook Profiles</button>
+        <button onClick={() => handleButtonClick("SignUp")}>SignUp</button>
+      </div>
       
-      <button onClick={() => setShowIdCard(!showIdCard)}>IdCard</button>
-      {showIdCard &&
-        users.map(elem => {
-          return <IdCard key={elem._id} user={elem} />
-        })}
-      
-      <button onClick={() => setShowGreetings(!showGreetings)}>Greetings</button>
-      {showGreetings &&
-        <>
-          <Greetings lang="de">Ludwig</Greetings>
-          <Greetings lang="fr">François</Greetings>
-        </>}
-      
-      <button onClick={() => setShowRandom(!showRandom)}>Random</button>
-      {showRandom &&
-        <>
-          <Random min={1} max={6} />
-          <Random min={1} max={100} />
-        </>}
-      
-      <button onClick={() => setShowBoxColor(!showBoxColor)}>BoxColor</button>
-      {showBoxColor &&
-        <>
-          <BoxColor r={255} g={0} b={0} />
-          <BoxColor r={128} g={255} b={0} />
-        </>}
-      
-      <button onClick={() => setShowCreditCard(!showCreditCard)}>CreditCard</button>
-      {showCreditCard &&
-        cards.map(elem => {
-          return <CreditCard key={elem._id} card={elem} />
-        })}
-      
-      <button onClick={() => setShowRating(!showRating)}>Rating</button>
-      {showRating &&
-        <>
-          <Rating>0</Rating>
-          <Rating>1.49</Rating>
-          <Rating>1.5</Rating>
-          <Rating>3</Rating>
-          <Rating>4</Rating>
-          <Rating>5</Rating>
-        </>}
-      
-      <button onClick={() => setShowDriverCard(!showDriverCard)}>Drivers</button>
-      {showDriverCard &&
-        drivers.map(elem => {
-          return <DriverCard key={elem._id} driver={elem} />
-        })}      
-      
-      <button onClick={() => setShowLikeButton(!showLikeButton)}>Like Buttons</button>
-      {showLikeButton &&
-        <div className="btn-container">
-          <LikeButton />
-          <LikeButton />
-        </div>
-      }
+      <div className="components-container">
+        {showIdCard &&
+          <div className="component">
+            {users.map(elem => {
+              return <IdCard key={elem._id} user={elem} />
+            })}
+          </div>
+        }
 
-      <button onClick={() => setShowClickablePicture(!showClickablePicture)}>Clickable Picture</button>
-      {showClickablePicture &&
-        <ClickablePicture img='maxence.png' imgClicked='maxence-glasses.png' />
-      }
+        {showGreetings &&
+          <div className="component">
+            <>
+              <Greetings lang="de">Ludwig</Greetings>
+              <Greetings lang="fr">François</Greetings>
+            </>
+          </div>
+        }
 
-      <button onClick={() => setShowDice(!showDice)}>Dice</button>
-      {showDice &&
-        <Dice />
-      }
+        {showRandom &&
+          <div className="component">
+            <>
+              <Random min={1} max={6} />
+              <Random min={1} max={100} />
+            </>
+          </div>
+        }
 
-      <button onClick={() => setShowCarousel(!showCarousel)}>Image Carousel</button>
-      {showCarousel &&
-        <Carousel
-          images={[
-            'https://randomuser.me/api/portraits/women/1.jpg',
-            'https://randomuser.me/api/portraits/men/1.jpg',
-            'https://randomuser.me/api/portraits/women/2.jpg',
-            'https://randomuser.me/api/portraits/men/2.jpg'
-          ]}
-        />
-      }
+        {showBoxColor &&
+          <div className="component">
+            <>
+              <BoxColor r={255} g={0} b={0} />
+              <BoxColor r={128} g={255} b={0} />
+            </>
+          </div>
+        }
 
-      <button onClick={() => setShowNumbersTable(!showNumbersTable)}>List & Keys</button>
-      {showNumbersTable &&
-        <NumbersTable limit={12} />
-      }
+        {showCreditCard &&
+          <div className="component">
+            {cards.map(elem => {
+              return <CreditCard key={elem._id} card={elem} />
+            })}
+          </div>
+        }
 
-      <button onClick={() => setShowFacebook(!showFacebook)}>Facebook Profiles</button>
-      {showFacebook &&
-        <Facebook />
-      }
+        {showRating &&
+          <div className="component">
+            <>
+              <Rating>0</Rating>
+              <Rating>1.49</Rating>
+              <Rating>1.5</Rating>
+              <Rating>3</Rating>
+              <Rating>4</Rating>
+              <Rating>5</Rating>
+            </>
+          </div>
+        }
 
-      <button onClick={() => setShowSignupPage(!showSignupPage)}>Signup Page</button>
-      {showSignupPage &&
-        <SignupPage />
-      }
-    </div>
+        {showDriverCard &&
+          <div className="component">
+            {drivers.map(elem => {
+              return <DriverCard key={elem._id} driver={elem} />
+            })}
+          </div>
+        }      
+
+        {showLikeButton &&
+          <div className="component">
+            <div className="btn-container">
+              <LikeButton />
+              <LikeButton />
+            </div>
+          </div>
+        }
+
+        {showClickablePicture &&
+          <div className="component">
+            <ClickablePicture img='maxence.png' imgClicked='maxence-glasses.png' />
+          </div>
+        }
+
+        {showDice &&
+          <div className="component">
+            <Dice />
+          </div>
+        }
+
+        {showCarousel &&
+          <div className="component">
+            <Carousel
+              images={[
+                'https://randomuser.me/api/portraits/women/1.jpg',
+                'https://randomuser.me/api/portraits/men/1.jpg',
+                'https://randomuser.me/api/portraits/women/2.jpg',
+                'https://randomuser.me/api/portraits/men/2.jpg'
+              ]}
+            />
+          </div>
+        }
+
+        {showNumbersTable &&
+          <div className="component">
+            <NumbersTable limit={12} />
+          </div>
+        }
+
+        {showFacebook &&
+          <div className="component">
+            <Facebook />
+          </div>
+        }
+
+        {showSignupPage &&
+          <div className="component">
+            <SignupPage />
+          </div>
+        }
+      </div>
+  </div>
   );
 }
 

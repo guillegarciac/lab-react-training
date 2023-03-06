@@ -225,3 +225,18 @@ button.selected {
 .form-submit {
   margin-top: 25px;
 }
+
+.buttons-container {
+  margin: 20px;
+  padding: 10px;
+}
+
+.components-container {
+  margin: 20px;
+  padding: 10px;
+}
+
+.component {
+  margin: 20px;
+  padding: 10px;
+}
