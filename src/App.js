@@ -34,15 +34,20 @@ function App() {
   const [showFacebook, setShowFacebook] = useState(false);
   const [showSignupPage, setShowSignupPage] = useState(false);
 
+/* TODO: refactor to hide component onClick
   const [activeComponent, setActiveComponent] = useState(null);
 
   const showComponent = (componentName) => {
     setActiveComponent(componentName);
   }
-
+  
   const hideComponent = () => {
-    setActiveComponent(null);
+  setActiveComponent(null);
   }
+*/
+ 
+
+
   
   return (
     <div className="App">
