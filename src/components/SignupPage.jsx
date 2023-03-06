@@ -104,7 +104,7 @@ const SignupPage = () => {
               </p>
             )}
 
-            <Button variant="primary" type="submit" disabled={!email.includes("@") || password.length < 8}>
+            <Button className="form-submit" variant="primary" type="submit" disabled={!email.includes("@") || password.length < 8}>
               Signup
             </Button>
           </Form>
