@@ -11,6 +11,7 @@ import ClickablePicture from './components/ClickablePicture';
 import Carosuel from './components/Carousel';
 import Dice from './components/Dice';
 import NumbersTable from './components/NumbersTable';
+import Facebook from './components/Facebook';
 import {usersArray as users} from './data/users';
 import {cardsArray as cards} from './data/cards'
 import {driversArray as drivers} from './data/drivers'
@@ -67,6 +68,8 @@ function App() {
       />
       <h1>List & Keys</h1>
       <NumbersTable limit={12} />
+      <h1>Facebook Profiles</h1>
+      <Facebook />
     </div>
   );
 }
