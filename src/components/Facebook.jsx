@@ -6,9 +6,21 @@ export default function Facebook() {
 
   const [profiles, setProfiles] = useState(profilesData);
   const [selectedCountry, setSelectedCountry] = useState(null);
-
+  const [showMoreCountries, setShowMoreCountries] = useState(false);
+  
   //Array of countries from the profiles data
   const countries = [...new Set(profiles.map((profile) => profile.country))];
+
+  //it15 adds top5 countries and other countries in a separate button.
+  //Sort countries by the number of profiles
+  const sortedCountries = countries.sort((a, b) => {
+    const aCount = profiles.filter((profile) => profile.country === a).length;
+    const bCount = profiles.filter((profile) => profile.country === b).length;
+    return bCount - aCount;
+  });
+
+  //Top 5 countries based on profile count
+  const top5Countries = sortedCountries.slice(0, 5);
 
   //Creates filteredProfiles to filters profiles by selected country (based on countries above), or show all profiles if none is selected (: profiles)
   const filteredProfiles = selectedCountry ? profiles.filter((profile) => profile.country === selectedCountry) : profiles;
@@ -23,6 +35,11 @@ export default function Facebook() {
     setSelectedCountry(null)
   }
 
+  //Handles the Toggle for dropdown more countries visibility
+  const handleMoreCountriesClick = () => {
+    setShowMoreCountries(!showMoreCountries); 
+  };
+
   return (
     <div>
       <div>
@@ -30,17 +47,45 @@ export default function Facebook() {
           onClick={handleAllCountriesClick} 
           style={{
             backgroundColor: selectedCountry === null ? "#43A5BE" : "transparent", 
-            color: selectedCountry === null ? "white" : "black"}}>All</button>
-        {countries.map((country, index) => (
+            color: selectedCountry === null ? "white" : "black"}}>
+            All
+        </button>
+        {top5Countries.map((country, index) => (
         <button 
           key={index}
           onClick={() => handleCountryClick(country)}
           style={{
             backgroundColor: selectedCountry === country ? "#43A5BE" : "transparent",
             color: selectedCountry === country ? "white" : "black"}}>
-          {country}
+            {country}
         </button>
       ))}
+      {countries.length > 5 && (
+          <div className="more-countries">
+            <button 
+            onClick={handleMoreCountriesClick}
+            style={{
+              backgroundColor: showMoreCountries ? "#43A5BE" : "transparent",
+              color: showMoreCountries ? "white" : "black"}}>
+              See More Countries
+            </button>
+            {/* show or hide the dropdown menu based on the showMoreCountries state */}
+            {showMoreCountries && (
+              <div className="more-countries-dropdown">
+                {sortedCountries.slice(5).map((country, index) => (
+                  <button 
+                    key={index}
+                    onClick={() => handleCountryClick(country)}
+                    style={{
+                      backgroundColor: selectedCountry === country ? "#43A5BE" : "transparent",
+                      color: selectedCountry === country ? "white" : "black"}}>
+                    {country}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
       </div>
     <div>
       {filteredProfiles.map((profile, index) => (
@@ -58,3 +103,4 @@ export default function Facebook() {
   </div>
   );
 }
+
