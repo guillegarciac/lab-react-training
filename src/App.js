@@ -14,6 +14,7 @@ import Dice from './components/Dice';
 import NumbersTable from './components/NumbersTable';
 import Facebook from './components/Facebook';
 import SignupPage from './components/SignupPage';
+import RGBColorPicker from './components/RGBColorPicker';
 import { usersArray as users } from './data/users';
 import { cardsArray as cards } from './data/cards'
 import { driversArray as drivers } from './data/drivers'
@@ -33,6 +34,7 @@ function App() {
   const [showNumbersTable, setShowNumbersTable] = useState(false);
   const [showFacebook, setShowFacebook] = useState(false);
   const [showSignupPage, setShowSignupPage] = useState(false);
+  const [showColorPicker, setShowColorPicker] = useState(false);
 
   const handleButtonClick = (buttonName) => {
     setShowIdCard(buttonName === "IdCard");
@@ -49,6 +51,7 @@ function App() {
     setShowNumbersTable(buttonName === "List & Keys");
     setShowFacebook(buttonName === "Facebook Profiles");
     setShowSignupPage(buttonName === "SignUp");
+    setShowColorPicker(buttonName === "ColorPicker")
   };
  
   return (
@@ -68,11 +71,13 @@ function App() {
         <button onClick={() => handleButtonClick("List & Keys")}>List & Keys</button>
         <button onClick={() => handleButtonClick("Facebook Profiles")}>Facebook Profiles</button>
         <button onClick={() => handleButtonClick("SignUp")}>SignUp</button>
+        <button onClick={() => handleButtonClick("ColorPicker")}>ColorPicker</button>
       </div>
       
       <div className="components-container">
         {showIdCard &&
           <div className="component">
+          <h1>ID Cards</h1>
             {users.map(elem => {
               return <IdCard key={elem._id} user={elem} />
             })}
@@ -81,6 +86,7 @@ function App() {
 
         {showGreetings &&
           <div className="component">
+          <h1>Custom Greetings</h1>
             <>
               <Greetings lang="de">Ludwig</Greetings>
               <Greetings lang="fr">François</Greetings>
@@ -90,6 +96,7 @@ function App() {
 
         {showRandom &&
           <div className="component">
+          <h1>Random Numbers</h1>
             <>
               <Random min={1} max={6} />
               <Random min={1} max={100} />
@@ -99,6 +106,7 @@ function App() {
 
         {showBoxColor &&
           <div className="component">
+          <h1>Boxes with rgb color inside</h1>
             <>
               <BoxColor r={255} g={0} b={0} />
               <BoxColor r={128} g={255} b={0} />
@@ -108,6 +116,7 @@ function App() {
 
         {showCreditCard &&
           <div className="component">
+          <h1>Randon CCs</h1>
             {cards.map(elem => {
               return <CreditCard key={elem._id} card={elem} />
             })}
@@ -116,6 +125,7 @@ function App() {
 
         {showRating &&
           <div className="component">
+          <h1>Rating scale component</h1>
             <>
               <Rating>0</Rating>
               <Rating>1.49</Rating>
@@ -129,6 +139,7 @@ function App() {
 
         {showDriverCard &&
           <div className="component">
+          <h1>Uber driver cards</h1>
             {drivers.map(elem => {
               return <DriverCard key={elem._id} driver={elem} />
             })}
@@ -137,6 +148,7 @@ function App() {
 
         {showLikeButton &&
           <div className="component">
+          <h1>Click these buttons</h1>
             <div className="btn-container">
               <LikeButton />
               <LikeButton />
@@ -146,18 +158,21 @@ function App() {
 
         {showClickablePicture &&
           <div className="component">
+          <h1>Click this guy! Cool uhh</h1>
             <ClickablePicture img='maxence.png' imgClicked='maxence-glasses.png' />
           </div>
         }
 
         {showDice &&
           <div className="component">
+          <h1>Click on the Dice, what's your number?</h1>
             <Dice />
           </div>
         }
 
         {showCarousel &&
           <div className="component">
+          <h1>Click Left & Right to see images</h1>
             <Carousel
               images={[
                 'https://randomuser.me/api/portraits/women/1.jpg',
@@ -171,19 +186,29 @@ function App() {
 
         {showNumbersTable &&
           <div className="component">
+          <h1>My Numbers Table</h1>
             <NumbersTable limit={12} />
           </div>
         }
 
         {showFacebook &&
           <div className="component">
+          <h1>Search Profiles by Country</h1>
             <Facebook />
           </div>
         }
 
         {showSignupPage &&
           <div className="component">
+          <h1>Sign up my friend</h1>
             <SignupPage />
+          </div>
+        }
+
+        {showColorPicker &&
+          <div className="component">
+          <h1>Select a color</h1>
+            <RGBColorPicker />
           </div>
         }
       </div>

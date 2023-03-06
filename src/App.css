@@ -240,3 +240,18 @@ button.selected {
   margin: 20px;
   padding: 10px;
 }
+
+.color-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.color-box > label {
+  margin-right: 10px;
+}
+
+.color-box > input {
+  width: 75px;
+}
