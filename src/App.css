@@ -286,3 +286,27 @@ select option:first-of-type {
 select option {
   background-color: #43A5BE;
 }
+
+/* Facebook V2 selected country bkg blue. */
+
+.facebook-container{
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+  padding: 15px;
+  border:1px solid grey;
+  border-radius: 7px;
+}
+.facebook-container img{
+  width: 100px;
+  object-fit: cover;
+}
+.facebook-user-container{
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.active {
+  background-color: lightblue;
+}

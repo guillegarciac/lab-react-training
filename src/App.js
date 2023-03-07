@@ -13,6 +13,7 @@ import Carousel from './components/Carousel';
 import Dice from './components/Dice';
 import NumbersTable from './components/NumbersTable';
 import Facebook from './components/Facebook';
+import FacebookV2 from './components/FacebookV2';
 import SignupPage from './components/SignupPage';
 import RGBColorPicker from './components/RGBColorPicker';
 import { usersArray as users } from './data/users';
@@ -33,6 +34,7 @@ function App() {
   const [showDice, setShowDice] = useState(false);
   const [showNumbersTable, setShowNumbersTable] = useState(false);
   const [showFacebook, setShowFacebook] = useState(false);
+  const [showFacebookV2, setShowFacebookV2] = useState(false);
   const [showSignupPage, setShowSignupPage] = useState(false);
   const [showColorPicker, setShowColorPicker] = useState(false);
 
@@ -50,6 +52,7 @@ function App() {
     setShowDice(buttonName === "Dice");
     setShowNumbersTable(buttonName === "List & Keys");
     setShowFacebook(buttonName === "Facebook Profiles");
+    setShowFacebookV2(buttonName === "Facebook Profiles V2");
     setShowSignupPage(buttonName === "SignUp");
     setShowColorPicker(buttonName === "ColorPicker")
   };
@@ -72,6 +75,7 @@ function App() {
         <button onClick={() => handleButtonClick("Image Carousel")}>Image Carousel</button>
         <button onClick={() => handleButtonClick("List & Keys")}>List & Keys</button>
         <button onClick={() => handleButtonClick("Facebook Profiles")}>Facebook Profiles</button>
+        <button onClick={() => handleButtonClick("Facebook Profiles V2")}>Facebook Profiles V2</button>
         <button onClick={() => handleButtonClick("SignUp")}>SignUp</button>
         <button onClick={() => handleButtonClick("ColorPicker")}>ColorPicker</button>
       </div>
@@ -197,6 +201,13 @@ function App() {
           <div className="component">
           <h1>Search Profiles by Country</h1>
             <Facebook />
+          </div>
+        }
+
+        {showFacebookV2 &&
+          <div className="component">
+          <h1>Search Profiles by Country</h1>
+            <FacebookV2 />
           </div>
         }
 
