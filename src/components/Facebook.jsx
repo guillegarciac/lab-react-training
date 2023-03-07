@@ -44,8 +44,9 @@ export default function Facebook() {
 
   return (
     <div>
-      <div>
+      <div className="filter-component">
         <button 
+          className="more-btn"
           onClick={handleAllCountriesClick} 
           style={{
             backgroundColor: selectedCountry === null ? "#43A5BE" : "transparent", 
@@ -54,6 +55,7 @@ export default function Facebook() {
         </button>
         {top5Countries.map((country, index) => (
         <button 
+          className="more-btn"
           key={index}
           onClick={() => handleCountryClick(country)}
           style={{
@@ -63,31 +65,23 @@ export default function Facebook() {
         </button>
       ))}
       {countries.length > 5 && (
-          <div className="more-countries">
-            <button 
-            onClick={handleMoreCountriesClick}
+        <div className="more-countries">
+          <select 
+            className="more-btn"
+            value={selectedCountry || ""}
+            onChange={(event) => handleCountryClick(event.target.value)}
             style={{
               backgroundColor: showMoreCountries ? "#43A5BE" : "transparent",
-              color: showMoreCountries ? "white" : "black"}}>
-              See More Countries
-            </button>
-            {/* show or hide the dropdown menu based on the showMoreCountries state */}
-            {showMoreCountries && (
-              <div className="more-countries-dropdown">
-                {sortedCountries.slice(5).map((country, index) => (
-                  <button 
-                    key={index}
-                    onClick={() => handleCountryClick(country)}
-                    style={{
-                      backgroundColor: selectedCountry === country ? "#43A5BE" : "transparent",
-                      color: selectedCountry === country ? "white" : "black"}}>
-                    {country}
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
-        )}
+              color: showMoreCountries ? "white" : "black"
+            }}
+          >
+            <option value="">See More Countries</option>
+            {sortedCountries.slice(5).map((country, index) => (
+              <option key={index} value={country}>{country}</option>
+            ))}
+          </select>
+        </div>
+      )}
       </div>
     <div>
       {filteredProfiles.map((profile, index) => (

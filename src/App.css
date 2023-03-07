@@ -215,7 +215,9 @@ button.selected {
 }
 
 .more-btn {
-  margin-right: 8
+  margin-right: 8;
+  height: 50px;
+  gap: 2px;
 }
 
 #greeting{
@@ -259,4 +261,28 @@ button.selected {
 .App > h1 {
   margin-top: 20px;
   font-size: 70px;
+}
+
+select {
+  background-color: transparent;
+  border: 1px solid black;
+  font-size: 1em;
+  padding: 0.5em;
+  cursor: pointer;
+}
+
+select option:first-of-type {
+  display: none;
+}
+
+.filter-component {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+select option {
+  background-color: #43A5BE;
 }
