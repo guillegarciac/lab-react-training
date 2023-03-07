@@ -50,6 +50,12 @@ export default function Facebook() {
     setShowMoreCountries(false);
   }
 
+  //Handles delete
+  const handleDelete = (selectedProfile) => {
+    const profileToDelete = [...profiles].filter(profile => profile.firstName !== selectedProfile)
+    setProfiles(profileToDelete)
+  }
+
   return (
     <div>
       <div className="filter-component">
@@ -102,6 +108,7 @@ export default function Facebook() {
     <div>
       {filteredProfiles.map((profile, index) => (
         <div className="idCard" key={index}>
+        <div className="cardContainer">
           <img src={profile.img} alt={profile.firstName + " " + profile.lastName} />
           <div className="cardIDetails">
             <p><strong>First name:</strong> {profile.firstName}</p>
@@ -110,6 +117,8 @@ export default function Facebook() {
             <p><strong>Type: </strong> {profile.isStudent ? "Student" : "Non-Student"}</p>
           </div>
         </div>
+        <button className="delete" onClick={() => handleDelete(profile.firstName)}>Delete Profile</button>
+      </div>
       ))}
     </div>
   </div>
