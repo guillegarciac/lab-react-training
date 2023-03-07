@@ -7,7 +7,8 @@ export default function Facebook() {
   const [profiles, setProfiles] = useState(profilesData);
   const [selectedCountry, setSelectedCountry] = useState(null);
   const [showMoreCountries, setShowMoreCountries] = useState(false);
-  
+  const [sortOrder, setSortOrder] = useState('asc');
+
   //Array of countries from the profiles data
   const countries = [...new Set(profiles.map((profile) => profile.country))];
 
@@ -25,6 +26,19 @@ export default function Facebook() {
   //Creates filteredProfiles to filters profiles by selected country (based on countries above), or show all profiles if none is selected (: profiles)
   const filteredProfiles = selectedCountry ? profiles.filter((profile) => profile.country === selectedCountry) : profiles;
 
+  //Handle sortByName click
+  const handleNameSort = () => {
+    const sortByName = [...profiles].sort((a, b) => {
+      if (sortOrder === 'asc') {
+        return a.firstName.localeCompare(b.firstName);
+      } else {
+        return b.firstName.localeCompare(a.firstName);
+      }
+    });
+    setProfiles(sortByName);
+    setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc');
+  };
+
   //Handles country button clicks
   const handleCountryClick = (country) => {
     setSelectedCountry(country);
@@ -35,12 +49,6 @@ export default function Facebook() {
     setSelectedCountry(null)
     setShowMoreCountries(false);
   }
-
-  //Handles the Toggle for dropdown more countries visibility
-  const handleMoreCountriesClick = () => {
-    setSelectedCountry(null);
-    setShowMoreCountries(!showMoreCountries); 
-  };
 
   return (
     <div>
@@ -82,6 +90,14 @@ export default function Facebook() {
           </select>
         </div>
       )}
+      <button 
+          className="more-btn"
+          onClick={handleNameSort} 
+          style={{
+            backgroundColor: selectedCountry === null ? "#43A5BE" : "transparent", 
+            color: selectedCountry === null ? "white" : "black"}}>
+            Sort {sortOrder === 'asc' ? '▲' : '▼'}
+        </button>
       </div>
     <div>
       {filteredProfiles.map((profile, index) => (
